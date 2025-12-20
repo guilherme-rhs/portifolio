@@ -1,261 +1,306 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Guilherme Ribeiro - Data Scientist</title>
-  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/4712/4712109.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body {
-      height: 100%;
-      background-color: #f0f4f8;
-      font-family: 'Inter', sans-serif;
-      overflow-x: hidden;
-    }
-    canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 0;
-    }
-    .content {
-      position: relative;
-      z-index: 1;
-      background: #ffffff;
-      border-radius: 12px;
-      padding: 3rem;
-      max-width: 1200px;
-      margin: 3rem auto;
-      box-shadow: 0 0 20px rgba(0,0,0,0.05);
-    }
-    .header {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-      margin-bottom: 2rem;
-    }
-    .header img {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      object-fit: cover;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
-    h1 {
-      font-size: 3rem;
-      color: #0a4cff;
-    }
-    h2, h3 {
-      font-size: 1.125rem;
-      color: #0a4cff;
-      margin-bottom: 0.5rem;
-    }
-    p, li, a, button {
-      font-size: 1rem;
-    }
-    .about {
-      margin-bottom: 2rem;
-    }
-    hr.divisor {
-      border: none;
-      height: 2px;
-      background-color: #0a4cff;
-      margin: 2rem 0;
-      border-radius: 2px;
-    }
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-    }
-    .project-card {
-      background-color: #fff;
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .project-card img.card-img {
-      width: 100%;
-      border-radius: 8px;
-      height: 160px;
-      object-fit: cover;
-      margin-bottom: 1rem;
-    }
-    .saiba-mais {
-      margin-top: auto;
-      text-align: right;
-    }
-    .saiba-mais a {
-      color: #0a4cff;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .contact-text {
-      text-align: center;
-      margin-top: 3rem;
-    }
-    .contact-text p {
-      font-size: 1rem;
-      margin: 0.25rem 0;
-    }
-    .icons {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-top: 1rem;
-    }
-    .icons a img {
-      width: 32px;
-      height: 32px;
-      transition: transform 0.2s ease;
-    }
-    .icons a img:hover {
-      transform: scale(1.2);
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Guilherme Ribeiro | Data Scientist</title>
+
+<link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/4712/4712109.png" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body {
+  background: #f0f4f8;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 3rem;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.header img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+h1 {
+  font-size: 3rem;
+  color: #0a4cff;
+}
+
+/* SECTIONS */
+h2 {
+  color: #0a4cff;
+  margin-bottom: 1rem;
+}
+p { line-height: 1.6; }
+
+hr.divisor {
+  margin: 3rem 0;
+  height: 2px;
+  border: none;
+  background: #0a4cff;
+}
+
+/* FADE IN */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* CAREER IMAGE */
+.career-visual {
+  text-align: center;
+  margin: 3rem 0;
+}
+.career-visual img {
+  width: 100%;
+  max-width: 1100px;
+  border-radius: 16px;
+  cursor: zoom-in;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+  transition: transform 0.3s ease;
+}
+.career-visual img:hover {
+  transform: scale(1.02);
+}
+.hint {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: .5rem;
+}
+
+/* MODAL */
+.image-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(6px);
+  z-index: 999;
+  justify-content: center;
+  align-items: center;
+}
+.image-modal img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 16px;
+}
+.close-modal {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 3rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* TIMELINE */
+.timeline-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+.timeline-card {
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+}
+.timeline-card:hover {
+  transform: translateY(-6px);
+}
+.timeline-card span {
+  font-size: 0.85rem;
+  color: #0a4cff;
+  font-weight: bold;
+}
+.timeline-card.highlight {
+  border-left: 4px solid #0a4cff;
+}
+.timeline-card.future {
+  background: linear-gradient(135deg,#0a4cff,#5f8dff);
+  color: #fff;
+}
+
+/* PROJECTS */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+  gap: 1.5rem;
+}
+.project-card {
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+/* CONTACT */
+.icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+.icons img {
+  width: 32px;
+}
+</style>
 </head>
+
 <body>
 <canvas id="network"></canvas>
 
 <div class="content">
-  <div class="header">
-    <img src="https://raw.githubusercontent.com/guilherme-rhs/portifolio/main/foto_gui.jpeg" alt="Foto de Guilherme Ribeiro" />
-    <div>
-      <h1>Guilherme Ribeiro</h1>
-      <p>Data Scientist especializado em IA, risco de crédito, saúde e prevenção à fraude.</p>
-    </div>
-  </div>
 
-  <div class="about">
-    <h2>Sobre mim</h2>
-    <p>Sou Cientista de Dados com foco em Inteligência Artificial, especializado na aplicação de técnicas avançadas de machine learning para extrair insights complexos de grandes volumes de dados. Atuo com Python, PySpark e plataformas como Databricks e Azure, aplicando MLOps com MLflow e Unity Catalog para governança e automação.</p>
-  </div>
-
-  <hr class="divisor" />
-
-  <div class="projects">
-    <div class="project-card">
-      <img src="https://via.placeholder.com/300x160.png?text=Saude" alt="Risco na Saúde" class="card-img" />
-      <h3>Risco na Saúde</h3>
-      <p>Modelagem preditiva aplicada à saúde para antecipar riscos.</p>
-      <ul>
-        <li>Python, Scikit-learn</li>
-        <li>XGBoost, Random Forest</li>
-        <li>Dados clínicos</li>
-        <li>AUC, Recall</li>
-        <li>Pipelines produtivos</li>
-      </ul>
-      <div class="saiba-mais"><a href="#">Saiba mais →</a></div>
-    </div>
-    <div class="project-card">
-      <img src="https://via.placeholder.com/300x160.png?text=Credito" alt="Risco no Crédito" class="card-img" />
-      <h3>Risco no Crédito</h3>
-      <p>Análise de inadimplência e score com monitoramento.</p>
-      <ul>
-        <li>PySpark, SQL</li>
-        <li>Modelos binários</li>
-        <li>PSI, KS, ROC</li>
-        <li>MLflow, UC</li>
-        <li>Deploy automatizado</li>
-      </ul>
-      <div class="saiba-mais"><a href="#">Saiba mais →</a></div>
-    </div>
-    <div class="project-card">
-      <img src="https://via.placeholder.com/300x160.png?text=Fraude" alt="Fraude" class="card-img" />
-      <h3>Fraude</h3>
-      <p>Detecção de comportamento anômalo com ML não supervisionado.</p>
-      <ul>
-        <li>Isolation Forest</li>
-        <li>DBSCAN</li>
-        <li>Clustering</li>
-        <li>Power BI</li>
-        <li>Alertas em tempo real</li>
-      </ul>
-      <div class="saiba-mais"><a href="#">Saiba mais →</a></div>
-    </div>
-  </div>
-
-  <div class="contact-text">
-    <p>Email: <a href="mailto:guilherme_ribeiro11@hotmail.com">guilherme_ribeiro11@hotmail.com</a></p>
-    <p>Telefone: +55 17 99715-5904</p>
-  </div>
-
-  <div class="icons">
-    <a href="https://www.linkedin.com/in/guilherme-ribeiro" target="_blank">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn">
-    </a>
-    <a href="https://github.com/guilhermeribeiro" target="_blank">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
-    </a>
-    <a href="mailto:guilherme_ribeiro11@hotmail.com">
-      <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email">
-    </a>
+<div class="header fade-in">
+  <img src="https://raw.githubusercontent.com/guilherme-rhs/portifolio/main/foto_gui.jpeg">
+  <div>
+    <h1>Guilherme Ribeiro</h1>
+    <p>Data Scientist | IA | Risco de Crédito | Saúde | Fraude</p>
   </div>
 </div>
 
+<div class="about fade-in">
+  <h2>Sobre mim</h2>
+  <p>Cientista de Dados com foco em IA, Big Data e MLOps, atuando com Python, PySpark, Databricks, Azure, MLflow e Unity Catalog.</p>
+</div>
+
+<div class="career-visual fade-in">
+  <h2>Minha Jornada em Data Science</h2>
+  <img id="careerImg"
+       src="https://raw.githubusercontent.com/guilherme-rhs/portifolio/main/timeline.png">
+  <p class="hint">Clique para ampliar</p>
+</div>
+
+<hr class="divisor" />
+
+<section class="fade-in">
+  <h2>Experiência Profissional</h2>
+  <div class="timeline-grid">
+    <div class="timeline-card">
+      <h3>DBK Distribuidora</h3>
+      <span>Analista Administrativo</span>
+      <p>Início da jornada analítica e indicadores.</p>
+    </div>
+    <div class="timeline-card">
+      <h3>Unimed</h3>
+      <span>Analista de BI</span>
+      <p>ETL, dashboards e dados estratégicos.</p>
+    </div>
+    <div class="timeline-card highlight">
+      <h3>Unimed Rio Preto</h3>
+      <span>Cientista de Dados</span>
+      <p>IA aplicada à saúde e MLOps.</p>
+    </div>
+    <div class="timeline-card highlight">
+      <h3>Casas Bahia</h3>
+      <span>Risco de Crédito</span>
+      <p>Modelagem, monitoramento e produção.</p>
+    </div>
+    <div class="timeline-card future">
+      <h3>Ford Motor Company</h3>
+      <span>Pesquisa em IA</span>
+      <p>LLMs, RAG, AutoML e agentes inteligentes.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divisor" />
+
+<div class="projects fade-in">
+  <div class="project-card">Risco na Saúde</div>
+  <div class="project-card">Risco no Crédito</div>
+  <div class="project-card">Fraude</div>
+</div>
+
+<div class="icons fade-in">
+  <a href="https://linkedin.com"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"></a>
+  <a href="https://github.com"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"></a>
+</div>
+
+</div>
+
+<!-- MODAL -->
+<div class="image-modal" id="modal">
+  <span class="close-modal" id="close">&times;</span>
+  <img id="modalImg">
+</div>
+
 <script>
-const canvas = document.getElementById('network');
-const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+// MODAL
+const img = document.getElementById("careerImg");
+const modal = document.getElementById("modal");
+const modalImg = document.getElementById("modalImg");
+document.getElementById("close").onclick = () => modal.style.display = "none";
+img.onclick = () => {
+  modal.style.display = "flex";
+  modalImg.src = img.src;
+};
+modal.onclick = e => { if (e.target === modal) modal.style.display = "none"; };
 
-const neurons = [];
-const total = 100;
+// FADE IN
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => e.isIntersecting && e.target.classList.add("visible"));
+},{threshold:.2});
+document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
 
-for (let i = 0; i < total; i++) {
-  neurons.push({
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    vx: (Math.random() - 0.5) * 0.5,
-    vy: (Math.random() - 0.5) * 0.5
-  });
-}
-
-const mouse = { x: 0, y: 0 };
-window.addEventListener('mousemove', (e) => {
-  mouse.x = e.clientX;
-  mouse.y = e.clientY;
-});
-
-function draw() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  neurons.forEach((n, i) => {
-    n.x += n.vx;
-    n.y += n.vy;
-    if (n.x < 0 || n.x > canvas.width) n.vx *= -1;
-    if (n.y < 0 || n.y > canvas.height) n.vy *= -1;
-    ctx.beginPath();
-    ctx.arc(n.x, n.y, 4, 0, Math.PI * 2);
-    ctx.fillStyle = "#0a4cff";
-    ctx.fill();
-    for (let j = i + 1; j < total; j++) {
-      const n2 = neurons[j];
-      const dx = n.x - n2.x;
-      const dy = n.y - n2.y;
-      const dist = Math.sqrt(dx * dx + dy * dy);
-      if (dist < 200) {
-        ctx.beginPath();
-        ctx.moveTo(n.x, n.y);
-        ctx.lineTo(n2.x, n2.y);
-        ctx.strokeStyle = `rgba(10, 76, 255, ${1 - dist / 200})`;
-        ctx.stroke();
+// CANVAS NETWORK
+const canvas = document.getElementById("network");
+const ctx = canvas.getContext("2d");
+canvas.width = innerWidth;
+canvas.height = innerHeight;
+const pts = Array.from({length:80},()=>({
+  x:Math.random()*canvas.width,
+  y:Math.random()*canvas.height,
+  vx:(Math.random()-.5)*.5,
+  vy:(Math.random()-.5)*.5
+}));
+function draw(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  pts.forEach((p,i)=>{
+    p.x+=p.vx;p.y+=p.vy;
+    if(p.x<0||p.x>canvas.width)p.vx*=-1;
+    if(p.y<0||p.y>canvas.height)p.vy*=-1;
+    ctx.beginPath();ctx.arc(p.x,p.y,3,0,Math.PI*2);
+    ctx.fillStyle="#0a4cff";ctx.fill();
+    pts.slice(i+1).forEach(o=>{
+      const d=Math.hypot(p.x-o.x,p.y-o.y);
+      if(d<150){
+        ctx.strokeStyle=`rgba(10,76,255,${1-d/150})`;
+        ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(o.x,o.y);ctx.stroke();
       }
-    }
-    const dx = n.x - mouse.x;
-    const dy = n.y - mouse.y;
-    const distMouse = Math.sqrt(dx * dx + dy * dy);
-    if (distMouse < 250) {
-      ctx.beginPath();
-      ctx.moveTo(n.x, n.y);
-      ctx.lineTo(mouse.x, mouse.y);
-      ctx.strokeStyle = `rgba(10, 76, 255, ${1 - distMouse / 250})`;
-      ctx.stroke();
-    }
+    });
   });
   requestAnimationFrame(draw);
 }
